@@ -124,7 +124,7 @@ function GenerateDocfxTocContent([Hashtable]$tocContent, [String]$lang, [String]
         $_.Value.ServiceName, 
         $_.Value.DisplayName,
         $_.Key}
-    foreach ($serviceMapping in sortedToc) {
+    foreach ($serviceMapping in $sortedToc) {
         $artifact = $serviceMapping.Key
         $serviceName = $serviceMapping.Value.ServiceName
         $displayName = $serviceMapping.Value.DisplayName
