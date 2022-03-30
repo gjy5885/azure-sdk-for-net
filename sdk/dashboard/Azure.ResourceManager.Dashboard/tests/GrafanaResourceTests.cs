@@ -11,6 +11,7 @@ using Azure.ResourceManager.Dashboard.Tests.Helpers;
 using NUnit.Framework;
 using Azure.Core;
 using Azure.ResourceManager.Dashboard;
+using Azure.ResourceManager.Models;
 
 namespace Azure.ResourceManager.Dashboard.Tests
 {
@@ -20,7 +21,7 @@ namespace Azure.ResourceManager.Dashboard.Tests
 
         private ResourceIdentifier _resourceGroupIdentifier;
 
-        public GrafanaResourceTests(bool isAsync) : base(isAsync, RecordedTestMode.Record)
+        public GrafanaResourceTests(bool isAsync) : base(isAsync)
         {
         }
 
@@ -58,29 +59,17 @@ namespace Azure.ResourceManager.Dashboard.Tests
 
         public async Task<GrafanaResource> CreateGrafanaResource(string grafanaResourceName)
         {
-            /*            // Create WebPubSub ConfigData
-                        IList<LiveTraceCategory> categories = new List<LiveTraceCategory>();
-                        categories.Add(new LiveTraceCategory("category-01", "true"));
+/*            var identityType = new IdentityType("SystemAssigned");
+            var resourceType = "Microsoft.Dashboard/grafana";
+            var systemData = new SystemData();
+            IDictionary<string, string> tags = null;
 
-                        AclAction aclAction = new AclAction("Deny");
-                        IList<WebPubSubRequestType> allow = new List<WebPubSubRequestType>();
-                        IList<WebPubSubRequestType> deny = new List<WebPubSubRequestType>();
-                        //allow.Add(new WebPubSubRequestType("ClientConnectionValue"));
-                        deny.Add(new WebPubSubRequestType("RESTAPI"));
-                        NetworkAcl publicNetwork = new NetworkAcl(allow, deny);
-                        IList<PrivateEndpointAcl> privateEndpoints = new List<PrivateEndpointAcl>();
+            var sku = new ResourceSku("Standard");
+            var identity = new ManagedIdentity();
+            var properties = new GrafanaResourceProperties();*/
 
-                        List<ResourceLogCategory> resourceLogCategory = new List<ResourceLogCategory>()
-                        {
-                            new ResourceLogCategory(){ Name = "category1", Enabled = "false" }
-                        };*/
-            var identityType = new IdentityType("SystemAssigned");
-            GrafanaResourceData data = new GrafanaResourceData(AzureLocation.WestUS2)
-            {
-                Sku = new ResourceSku("Standard"),
-                Identity = new ManagedIdentity(),
-                Properties = new GrafanaResourceProperties(),
-            };
+            GrafanaResourceData data = new GrafanaResourceData(AzureLocation.EastUS);
+
             // Create GrafanaResource
             var grafanaResource = await (await _resourceGroup.GetGrafanaResources().CreateOrUpdateAsync(WaitUntil.Completed, grafanaResourceName, data)).WaitForCompletionAsync();
 
@@ -93,12 +82,11 @@ namespace Azure.ResourceManager.Dashboard.Tests
         {
             string grafanaResourceName = Recording.GenerateAssetName("grafanaResource-");
             var grafanaResource = await CreateGrafanaResource(grafanaResourceName);
-            Console.WriteLine(grafanaResource.Data.Name);
             Assert.IsNotNull(grafanaResource.Data);
             Assert.AreEqual(grafanaResourceName, grafanaResource.Data.Name);
-            Assert.AreEqual(AzureLocation.WestUS2, grafanaResource.Data.Location);
+            Assert.AreEqual(AzureLocation.EastUS, grafanaResource.Data.Location);
         }
-
+/*
         [Test]
         [RecordedTest]
         public async Task CheckIfExist()
@@ -118,7 +106,7 @@ namespace Azure.ResourceManager.Dashboard.Tests
             var grafanaResource = await _resourceGroup.GetGrafanaResources().GetAsync(grafanaResourceName);
             Assert.IsNotNull(grafanaResource.Value.Data);
             Assert.AreEqual(grafanaResourceName, grafanaResource.Value.Data.Name);
-            Assert.AreEqual(AzureLocation.WestUS2, grafanaResource.Value.Data.Location);
+            Assert.AreEqual(AzureLocation.EastUS, grafanaResource.Value.Data.Location);
         }
 
         [Test]
@@ -138,6 +126,8 @@ namespace Azure.ResourceManager.Dashboard.Tests
             string grafanaResourceName = Recording.GenerateAssetName("grafanaResource-");
             var grafanaResource = await CreateGrafanaResource(grafanaResourceName);
             await grafanaResource.DeleteAsync(WaitUntil.Completed);
-        }
+            List<GrafanaResource> grafanaResourceList = await _resourceGroup.GetGrafanaResources().GetAllAsync().ToEnumerableAsync();
+            Assert.AreEqual(, grafanaResourceList.Count);
+        }*/
     }
 }

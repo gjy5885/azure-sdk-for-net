@@ -1,0 +1,95 @@
+{
+  "Entries": [
+    {
+      "RequestUri": "https://management.azure.com/subscriptions/122e56cf-cae4-4c70-ae92-00b5f83fdf69?api-version=2021-01-01",
+      "RequestMethod": "GET",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Connection": "keep-alive",
+        "traceparent": "00-6d972154f6947b4b8694b3bc3c3ae67a-8174c0c15c881f40-00",
+        "User-Agent": "azsdk-net-ResourceManager/1.0.0-alpha.20220330.1 (.NET Framework 4.8.4420.0; Microsoft Windows 10.0.19044 )",
+        "x-ms-client-request-id": "b23295c5229b933e3f4cad5193ce3424",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": null,
+      "StatusCode": 200,
+      "ResponseHeaders": {
+        "Cache-Control": "no-cache",
+        "Content-Length": "390",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 29 Mar 2022 17:17:21 GMT",
+        "Expires": "-1",
+        "Pragma": "no-cache",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "x-ms-correlation-request-id": "556e9611-757f-4744-ab6a-31b51f5b7dfd",
+        "x-ms-ratelimit-remaining-subscription-reads": "11999",
+        "x-ms-request-id": "556e9611-757f-4744-ab6a-31b51f5b7dfd",
+        "x-ms-routing-request-id": "KOREASOUTH:20220329T171722Z:556e9611-757f-4744-ab6a-31b51f5b7dfd"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/122e56cf-cae4-4c70-ae92-00b5f83fdf69",
+        "authorizationSource": "RoleBased",
+        "managedByTenants": [],
+        "subscriptionId": "122e56cf-cae4-4c70-ae92-00b5f83fdf69",
+        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "displayName": "jiyanggong",
+        "state": "Enabled",
+        "subscriptionPolicies": {
+          "locationPlacementId": "Internal_2014-09-01",
+          "quotaId": "Internal_2014-09-01",
+          "spendingLimit": "Off"
+        }
+      }
+    },
+    {
+      "RequestUri": "https://management.azure.com/subscriptions/122e56cf-cae4-4c70-ae92-00b5f83fdf69/resourcegroups/GrafanaResourceRG-110?api-version=2021-04-01",
+      "RequestMethod": "PUT",
+      "RequestHeaders": {
+        "Accept": "application/json",
+        "Authorization": "Sanitized",
+        "Content-Length": "32",
+        "Content-Type": "application/json",
+        "traceparent": "00-717243ddc587ab4eaf4807d72c56ad14-f825d0cddabaf941-00",
+        "User-Agent": "azsdk-net-ResourceManager/1.0.0-alpha.20220330.1 (.NET Framework 4.8.4420.0; Microsoft Windows 10.0.19044 )",
+        "x-ms-client-request-id": "542a044cba61121b96f0744bd3411db8",
+        "x-ms-return-client-request-id": "true"
+      },
+      "RequestBody": {
+        "tags": {},
+        "location": "westus2"
+      },
+      "StatusCode": 201,
+      "ResponseHeaders": {
+        "Cache-Control": "no-cache",
+        "Content-Length": "250",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 29 Mar 2022 17:17:24 GMT",
+        "Expires": "-1",
+        "Pragma": "no-cache",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "x-ms-correlation-request-id": "7306d3fc-3d37-4c58-ac92-541ef6f9e49f",
+        "x-ms-ratelimit-remaining-subscription-writes": "1199",
+        "x-ms-request-id": "7306d3fc-3d37-4c58-ac92-541ef6f9e49f",
+        "x-ms-routing-request-id": "KOREASOUTH:20220329T171725Z:7306d3fc-3d37-4c58-ac92-541ef6f9e49f"
+      },
+      "ResponseBody": {
+        "id": "/subscriptions/122e56cf-cae4-4c70-ae92-00b5f83fdf69/resourceGroups/GrafanaResourceRG-110",
+        "name": "GrafanaResourceRG-110",
+        "type": "Microsoft.Resources/resourceGroups",
+        "location": "westus2",
+        "tags": {},
+        "properties": {
+          "provisioningState": "Succeeded"
+        }
+      }
+    }
+  ],
+  "Variables": {
+    "RandomSeed": "1487370697",
+    "RESOURCE_MANAGER_URL": null,
+    "SUBSCRIPTION_ID": "122e56cf-cae4-4c70-ae92-00b5f83fdf69"
+  }
+}
